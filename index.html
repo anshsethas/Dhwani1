@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>For My Girl, Dhwani ♡</title>
+    <meta name="description" content="A dark romantic, intimate digital love letter for Dhwani — Happy 1st October, my girl.">
+    <meta name="theme-color" content="#0B0709">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Thin Dark-Pink Scroll Progress Indicator -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- Ambient Subtle Orbs & Atmospheric Glow Background -->
+    <div class="ambient-glow-wrapper">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+        <div class="glow-orb orb-4"></div>
+    </div>
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- Noise Texture Overlay -->
+    <div class="paper-texture"></div>
+
+    <!-- Floating Mini Music Player (Bottom-Right Floating Pill UI) -->
+    <div class="audio-control-container">
+        <button id="music-toggle" class="mini-music-player" aria-label="Play My Girl" title="My Girl · Paused ♡">
+            <span class="player-music-icon">♫</span>
+            <span class="player-track-info">
+                <span class="player-track-name">My Girl</span>
+                <span class="player-hover-text"> · Playing ♡</span>
+            </span>
+            <span class="player-equalizer">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="player-action-icon">
+                <span class="icon-pause">❚❚</span>
+                <span class="icon-play">▶</span>
+            </span>
+        </button>
+        <!-- Single Shared Audio Instance -->
+        <audio id="bg-music" src="music/my-girl.mp3" preload="auto" loop></audio>
+    </div>
+
+    <!-- ==========================================
+         CINEMATIC OPENING SCREEN
+    =========================================== -->
+    <div id="opening-screen" class="opening-screen">
+        <div class="opening-glow-effect" id="opening-glow"></div>
+        
+        <div class="opening-content">
+            <div class="opening-badge">1 October · For You</div>
+            
+            <h1 class="opening-title">
+                <span id="opening-typewriter">For my girl, Dhwani...</span>
+                <span class="type-cursor">|</span>
+            </h1>
+
+            <p id="opening-sub-typed" class="opening-subtitle">my cutuuu baby 😚</p>
+            
+            <button id="open-btn" class="open-button micro-tap">
+                <span>open this ♡</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MAIN WEBSITE CONTENT
+    =========================================== -->
+    <main id="main-content" class="main-content hidden">
+
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="hero-section">
+            <div class="container hero-container">
+                <span class="hero-date-tag">Happy 1st October</span>
+                
+                <h1 class="hero-title reveal-hero-title">
+                    My Girl. <span class="heart-accent-interactive" id="hero-heart">♡</span>
+                </h1>
+
+                <p class="hero-subtitle reveal-hero-subtitle">
+                    Somehow, somewhere between all those random conversations and everything we went through... <span class="pink-highlight">you became my person.</span>
+                </p>
+
+                <div class="nicknames-row reveal-hero-nicknames">
+                    <span class="handwritten-text">Cuttu</span> • 
+                    <span class="handwritten-text">Kuchupuchu</span> • 
+                    <span class="handwritten-text">Baby</span> • 
+                    <span class="handwritten-text">Bachuu</span>
+                </div>
+                
+                <div class="counter-badge reveal-hero-badge">
+                    <span class="heart-pulse">♡</span>
+                    <span id="days-counter-text"><strong id="days-count">0</strong> days of us ♡</span>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <span class="scroll-dot"></span>
+            </div>
+        </section>
+
+        <!-- LIVE RELATIONSHIP COUNTER SECTION ("Since that first message ♡") -->
+        <section class="section live-counter-section reveal-section" id="live-counter-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">IT ALL STARTED WITH A MESSAGE</span>
+                    <h2 class="section-title">Look how far we've come. ♡</h2>
+                </div>
+
+                <!-- First Message Timeline Detail -->
+                <div class="first-msg-badge">
+                    <span class="badge-time">09 APR 2026 · 09:12 PM</span>
+                    <span class="badge-text">Dhwani sent the first message.</span>
+                </div>
+
+                <!-- 4 Live Counter Cards -->
+                <div class="live-counter-grid">
+                    <div class="counter-card reveal-card-slide">
+                        <span class="counter-number" id="live-days">0</span>
+                        <span class="counter-label">DAYS</span>
+                    </div>
+                    <div class="counter-card reveal-card-slide">
+                        <span class="counter-number" id="live-hours">00</span>
+                        <span class="counter-label">HOURS</span>
+                    </div>
+                    <div class="counter-card reveal-card-slide">
+                        <span class="counter-number" id="live-minutes">00</span>
+                        <span class="counter-label">MINUTES</span>
+                    </div>
+                    <div class="counter-card highlight-sec-card reveal-card-slide">
+                        <span class="counter-number" id="live-seconds">00</span>
+                        <span class="counter-label">SECONDS</span>
+                    </div>
+                </div>
+
+                <!-- Personal Lines -->
+                <div class="counter-personal-lines">
+                    <p class="counter-line">“From one random message…”</p>
+                    <p class="counter-line">“To countless conversations…”</p>
+                    <p class="counter-line highlight-line">“To becoming each other’s person. ♡”</p>
+                    <p class="counter-closing-line">“And somehow, that one message became our beginning.”</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LITTLE MESSAGE SECTION (Progressive Line Reveal) -->
+        <section class="section message-section reveal-section" id="message-section">
+            <div class="container">
+                <div class="card message-card">
+                    <div class="card-corner-accent top-left"></div>
+                    <div class="card-corner-accent bottom-right"></div>
+                    <h2 class="section-subheading handwritten-heading">From my heart...</h2>
+                    
+                    <div class="message-text progressive-lines" id="progressive-message">
+                        <p class="msg-line">“I honestly never thought that when we first met, we would become this close.</p>
+                        <p class="msg-line">I don't know how we went from just knowing each other to becoming such an important part of each other's lives.</p>
+                        <p class="msg-line">We had our ups and downs, our confusing moments, our little fights and everything in between...</p>
+                        <p class="msg-line highlight-paragraph">but somehow, everything found its way back to being okay.</p>
+                        <p class="msg-line closing-paragraph">And I'm really glad it did. ❤️”</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THINGS I LOVE ABOUT YOU SECTION -->
+        <section class="section love-things-section reveal-section" id="love-things-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Little details</span>
+                    <h2 class="section-title">Things I Love About You</h2>
+                </div>
+
+                <div class="things-grid">
+                    <div class="thing-card reveal-card-slide">
+                        <div class="thing-number">01</div>
+                        <h3 class="thing-title">Your heart</h3>
+                        <p class="thing-desc">You care about people more than you show.</p>
+                    </div>
+
+                    <div class="thing-card reveal-card-slide">
+                        <div class="thing-number">02</div>
+                        <h3 class="thing-title">Your little things</h3>
+                        <p class="thing-desc">The random things you do somehow end up being my favourite things.</p>
+                    </div>
+
+                    <div class="thing-card reveal-card-slide">
+                        <div class="thing-number">03</div>
+                        <h3 class="thing-title">Your strength</h3>
+                        <p class="thing-desc">You handle more than people probably realise.</p>
+                    </div>
+
+                    <div class="thing-card reveal-card-slide">
+                        <div class="thing-number">04</div>
+                        <h3 class="thing-title">Just you</h3>
+                        <p class="thing-desc">Honestly, I don't need a reason. I just like having you around. ♡</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEMORY SECTION (Slide & Rotate reveal) -->
+        <section class="section memory-section reveal-section" id="memory-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">How it started</span>
+                    <h2 class="section-title">Little pieces of us ♡</h2>
+                </div>
+
+                <div class="memory-list">
+                    <div class="memory-item reveal-memory-card">
+                        <div class="memory-date">9 April</div>
+                        <div class="memory-content">
+                            <p>“Just one normal message... and somehow everything started from there.”</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-item reveal-memory-card">
+                        <div class="memory-date">10 April</div>
+                        <div class="memory-content">
+                            <p>“Some conversations just don't feel like conversations anymore.”</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-item reveal-memory-card">
+                        <div class="memory-date">11 April</div>
+                        <div class="memory-content">
+                            <p>“Somewhere between all the calls and talks, you started becoming special.”</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHOTO GALLERY SECTION (9 Photos Total - Frame System) -->
+        <section class="section gallery-section reveal-section" id="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Captured memories</span>
+                    <h2 class="section-title">Our Memory Collection ♡</h2>
+                    <p class="section-subtitle-small">Tap any photo to view in full size</p>
+                </div>
+
+                <!-- 9 Photos Gallery Grid -->
+                <div class="gallery-grid" id="gallery-grid">
+                    
+                    <!-- Photo 1 -->
+                    <div class="photo-card reveal-photo" data-index="0">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-1.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-1.jpg" alt="Dhwani memory 1" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 2 -->
+                    <div class="photo-card reveal-photo" data-index="1">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-2.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-2.jpg" alt="Dhwani memory 2" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 3 -->
+                    <div class="photo-card reveal-photo" data-index="2">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-3.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-3.jpg" alt="Dhwani memory 3" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 4 -->
+                    <div class="photo-card reveal-photo" data-index="3">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-4.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-4.jpg" alt="Dhwani memory 4" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 5 -->
+                    <div class="photo-card reveal-photo" data-index="4">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-5.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-5.jpg" alt="Dhwani memory 5" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 6 -->
+                    <div class="photo-card reveal-photo" data-index="5">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-6.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-6.jpg" alt="Dhwani memory 6" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 7 -->
+                    <div class="photo-card reveal-photo" data-index="6">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-7.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-7.jpg" alt="Dhwani memory 7" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 8 -->
+                    <div class="photo-card reveal-photo" data-index="7">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-8.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-8.jpg" alt="Dhwani memory 8" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 9 -->
+                    <div class="photo-card reveal-photo" data-index="8">
+                        <div class="photo-wrapper">
+                            <img class="photo-bg-blur" src="images/photo-9.jpg" alt="" aria-hidden="true">
+                            <img class="photo-fg-main" src="images/photo-9.jpg" alt="Dhwani memory 9" loading="lazy">
+                            <div class="photo-overlay">
+                                <span class="zoom-icon">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CUTE LITTLE SECTION -->
+        <section class="section cute-notes-section reveal-section" id="cute-notes-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Just saying...</span>
+                    <h2 class="section-title">Things you should know, bby ♡</h2>
+                </div>
+
+                <div class="cute-notes-grid">
+                    <div class="cute-note-item reveal-card-slide">
+                        <span class="cute-quote-mark">“</span>
+                        <p class="cute-note-text">You're my favourite notification.</p>
+                    </div>
+
+                    <div class="cute-note-item reveal-card-slide">
+                        <span class="cute-quote-mark">“</span>
+                        <p class="cute-note-text">I could talk to you for hours and still have something to say.</p>
+                    </div>
+
+                    <div class="cute-note-item reveal-card-slide">
+                        <span class="cute-quote-mark">“</span>
+                        <p class="cute-note-text">You somehow make normal days feel a little better.</p>
+                    </div>
+
+                    <div class="cute-note-item highlight-cute-note reveal-card-slide">
+                        <span class="cute-quote-mark">“</span>
+                        <p class="cute-note-text">And yes... you're still my Cuttu. 😚</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED LOVE LINE (EMOTIONAL CENTERPIECE) -->
+        <section class="section featured-line-section reveal-section" id="featured-section">
+            <div class="container">
+                <div class="featured-card">
+                    <div class="featured-heart-icon tap-pulse-heart" id="centerpiece-heart">❤️</div>
+                    <blockquote class="featured-quote">
+                        “I don't know how we got here... but I'm really happy we did.”
+                    </blockquote>
+                    <span class="featured-sub">forever grateful for us</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL SECTION (SPECIAL TYPEWRITER & EMOTIONAL HIGHLIGHT) -->
+        <footer class="final-section reveal-section" id="final-section">
+            <div class="darken-backdrop-overlay"></div>
+            <div class="container final-container">
+                
+                <div class="special-heart-glow-container">
+                    <div class="final-heart pulse-slow" id="special-glow-heart">❤️</div>
+                    <div class="pink-heart-aura" id="pink-heart-aura"></div>
+                </div>
+
+                <!-- Special Typewriter Sequence Container -->
+                <div class="special-reveal-box">
+                    <h2 class="final-main-line" id="special-typewriter-target">
+                        <span id="special-typed-text"></span><span class="type-cursor" id="special-cursor">|</span>
+                    </h2>
+                </div>
+
+                <div class="final-sublines-wrapper" id="final-sublines">
+                    <p class="final-sub-line fade-in-subline">Happy 1st October, my girl.</p>
+                    <p class="final-love-line fade-in-subline">Always your Cuttu 😚</p>
+
+                    <!-- Subtle Final Interaction -->
+                    <div class="one-more-thing-container">
+                        <button id="one-more-thing-btn" class="one-more-thing-btn micro-tap">One more thing... ♡</button>
+                        <div id="one-more-thing-content" class="one-more-thing-content">
+                            <p class="secret-message">“If I had to choose again,<br>I’d still choose you.”</p>
+                        </div>
+                    </div>
+                    
+                    <div class="final-divider"></div>
+                    <p class="footer-credits">For my girl, with love. ♡</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- LIGHTBOX MODAL FOR GALLERY -->
+    <div id="lightbox-modal" class="lightbox-modal" aria-hidden="true">
+        <button id="lightbox-close" class="lightbox-close micro-tap" aria-label="Close image">✕</button>
+        <button id="lightbox-prev" class="lightbox-nav lightbox-prev micro-tap" aria-label="Previous image">‹</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Enlarged memory view">
+        </div>
+        <button id="lightbox-next" class="lightbox-nav lightbox-next micro-tap" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive Floating Heart Effect Container -->
+    <div id="hearts-container" class="hearts-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
