@@ -950,7 +950,10 @@ body {
         grid-column: 1 / -1;
     }
     .gallery-grid .photo-card:last-child .photo-wrapper {
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 16 / 9;
+    }
+    .gallery-grid .photo-card:last-child .photo-fg-main {
+        object-fit: cover;
     }
 }
 
@@ -963,7 +966,10 @@ body {
         grid-column: 1 / -1;
     }
     .gallery-grid .photo-card:last-child .photo-wrapper {
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 16 / 9;
+    }
+    .gallery-grid .photo-card:last-child .photo-fg-main {
+        object-fit: cover;
     }
 }
 
