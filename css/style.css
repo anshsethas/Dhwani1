@@ -946,12 +946,24 @@ body {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
+    .gallery-grid .photo-card:last-child {
+        grid-column: 1 / -1;
+    }
+    .gallery-grid .photo-card:last-child .photo-wrapper {
+        aspect-ratio: 16 / 10;
+    }
 }
 
 @media (max-width: 480px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
+    }
+    .gallery-grid .photo-card:last-child {
+        grid-column: 1 / -1;
+    }
+    .gallery-grid .photo-card:last-child .photo-wrapper {
+        aspect-ratio: 16 / 10;
     }
 }
 
